@@ -34,7 +34,7 @@ function App() {
   }
 
   function insertionSort() {
-    const animations = selectionSortAnimations(arr);
+    const animations = getInsertionSortAnimations(arr);
     animate(animations);
   }
 
@@ -89,7 +89,7 @@ function App() {
         <button className="button" onClick={selectionSort}>
           Selection Sort
         </button>
-        <button className="button" onClick={selectionSort}>
+        <button className="button" onClick={insertionSort}>
           Insertion Sort
         </button>
         <button
