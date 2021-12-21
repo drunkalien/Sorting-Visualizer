@@ -4,7 +4,7 @@ import "./App.css";
 import Bar from "./components/Bar";
 
 import selectionSortAnimations from "./algorithms/selectionSort";
-import getInsertionSortAnimations from "./algorithms/insertionSort";
+import insertionSortAnimations from "./algorithms/insertionSort";
 import bubbleSortAnimations from "./algorithms/bubbleSort";
 
 function App() {
@@ -16,7 +16,9 @@ function App() {
 
   useEffect(generateRandomArray, []);
   useEffect(() => {
-    console.log(isSorted);
+    if (isSorted) {
+      animateSorted();
+    }
   }, [isSorted]);
 
   function generateRandomNumber(min, max) {
@@ -25,7 +27,7 @@ function App() {
 
   function generateRandomArray() {
     const tmpArr = [];
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 25; i++) {
       tmpArr.push(generateRandomNumber(0, 100));
     }
     setArr(tmpArr);
@@ -38,7 +40,7 @@ function App() {
   }
 
   function insertionSort() {
-    const animations = getInsertionSortAnimations(arr);
+    const animations = insertionSortAnimations(arr);
     animate(animations);
   }
 
@@ -85,6 +87,15 @@ function App() {
       barStyleRed.backgroundColor = "";
       barStyleGreen.backgroundColor = "";
     }, DELAY);
+  }
+
+  function animateSorted() {
+    const bars = containerRef.current.children[1];
+    for (let bar of bars.children) {
+      setTimeout(() => {
+        bar.backgroundColor = "green";
+      }, DELAY / 2);
+    }
   }
 
   return (
