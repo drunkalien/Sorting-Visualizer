@@ -27,7 +27,7 @@ function App() {
 
   function generateRandomArray() {
     const tmpArr = [];
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 30; i++) {
       tmpArr.push(generateRandomNumber(0, 100));
     }
     setArr(tmpArr);

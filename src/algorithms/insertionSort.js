@@ -1,4 +1,5 @@
 function insertionSortAnimations(arr) {
+  // TODO fix new bug :)
   const animations = [];
   for (let i = 1; i < arr.length; i++) {
     let current = arr[i];
