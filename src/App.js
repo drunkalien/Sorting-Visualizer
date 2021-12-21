@@ -10,11 +10,14 @@ import bubbleSortAnimations from "./algorithms/bubbleSort";
 function App() {
   const [arr, setArr] = useState([]);
   const [isSorting, setIsSorting] = useState(false);
+  const [isSorted, setIsSorted] = useState(false);
   const containerRef = useRef(null);
-  const DELAY = 100;
+  const DELAY = 50;
 
   useEffect(generateRandomArray, []);
-  useEffect(() => {}, [arr]);
+  useEffect(() => {
+    console.log(isSorted);
+  }, [isSorted]);
 
   function generateRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
@@ -26,6 +29,7 @@ function App() {
       tmpArr.push(generateRandomNumber(0, 100));
     }
     setArr(tmpArr);
+    setIsSorted(false);
   }
 
   function selectionSort() {
@@ -52,7 +56,10 @@ function App() {
     interval = setInterval(() => {
       if (counter === newArr.length - 1) {
         clearInterval(interval);
+        setIsSorted(true);
       }
+
+      if (isSorted) return;
 
       const [arr, i, j] = newArr[counter];
 
