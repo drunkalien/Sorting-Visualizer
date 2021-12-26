@@ -10,9 +10,9 @@
 }
 
 .bar {
-  width: 30px;
+  width: 5px;
   margin-top: 50px;
-  margin-left: 5px;
+  margin-left: 0px;
   background-color: #000;
   color: #fff;
   display: flex;

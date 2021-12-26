@@ -12,7 +12,7 @@ function App() {
   const [isSorting, setIsSorting] = useState(false);
   const [isSorted, setIsSorted] = useState(false);
   const containerRef = useRef(null);
-  const DELAY = 50;
+  const DELAY = 5;
 
   useEffect(generateRandomArray, []);
   useEffect(() => {
@@ -27,8 +27,8 @@ function App() {
 
   function generateRandomArray() {
     const tmpArr = [];
-    for (let i = 0; i < 30; i++) {
-      tmpArr.push(generateRandomNumber(0, 100));
+    for (let i = 0; i < 100; i++) {
+      tmpArr.push(generateRandomNumber(0, 120));
     }
     setArr(tmpArr);
     setIsSorted(false);
@@ -78,14 +78,11 @@ function App() {
   function animateSelection(i, j) {
     const bars = containerRef.current.children[1];
     const barStyleRed = bars.children[j].style;
-    const barStyleGreen = bars.children[i].style;
     setTimeout(() => {
       barStyleRed.backgroundColor = "red";
-      barStyleGreen.backgroundColor = "green";
     }, DELAY / 2);
     setTimeout(() => {
       barStyleRed.backgroundColor = "";
-      barStyleGreen.backgroundColor = "";
     }, DELAY);
   }
 

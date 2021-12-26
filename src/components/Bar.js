@@ -10,9 +10,7 @@ function Bar({ arr }) {
             height: `${el * 5 + 20}px`,
           }}
           className={classes.bar}
-        >
-          {el}
-        </div>
+        ></div>
       ))}
     </div>
   );
